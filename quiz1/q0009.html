@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    #page {
+      width: 1000px;
+      margin: 0 auto;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    let isHide = true;
+
+    function control() {
+      if(isHide) {
+        $(this).text('답안 보기');
+        $('#answer').hide();
+      } else {
+        $(this).text('답안 감추기')
+        $('#answer').show();
+      }
+    }
+
+    $(document).ready(function() {
+      control();
+      $('#toggle').click(function() {
+        isHide=!isHide;
+        control();
+      });
+    });
+    
+  </script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="page">
+    <div>
+      <textarea class="form-control" rows="5" disabled>
+        # 4의 배수면 윤년이다. 단 100의 배수이면 윤년이 아니다
+        # 윤년여부를 출력
+      </textarea>
+    </div>
+    <div class="d-grid mb-3 mt-3">
+      <button id="toggle" class="btn btn-outline-primary">답안 보기</button>
+    </div>
+    <div id="answer">
+      <textarea class="form-control" rows="10" disabled>
+        try:
+          year = int(input('윤년여부를 판정할 년도 : '))
+          if year%4==0 and year%4!=0:
+            print(f'{year}년은 윤년입니다')
+          else:
+            print(f'{year}년은 윤년이 아닙니다')
+        except:
+          print('년도를 정확히 입력하세요')
+      </textarea>
+    </div>
+    <a href="q0010.html" class="btn btn-primary">다음으로</a>
+  </div>
+</body>
+</html>

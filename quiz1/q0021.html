@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    #page {
+      width: 1000px;
+      margin: 0 auto;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    let isHide = true;
+
+    function control() {
+      if(isHide) {
+        $(this).text('답안 보기');
+        $('#answer').hide();
+      } else {
+        $(this).text('답안 감추기')
+        $('#answer').show();
+      }
+    }
+
+    $(document).ready(function() {
+      control();
+      $('#toggle').click(function() {
+        isHide=!isHide;
+        control();
+      });
+    });
+    
+  </script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="page">
+    <div>
+      <textarea class="form-control" rows="7" disabled>
+        # bmi 지수를 계산하는 함수를 작성
+        # bmi는 체중 / 키의제곱인데 이때 키는 m단위이다(175cm이면 1.75)
+        # 체중은 kg 단위, 키는 cm 단위로 전달받는다
+        # bmi는 소수점 첫째자리까지 
+      </textarea>
+    </div>
+    <div class="d-grid mb-3 mt-3">
+      <button id="toggle" class="btn btn-outline-primary">답안 보기</button>
+    </div>
+    <div id="answer">
+      <textarea class="form-control" rows="10" disabled>
+        def calculate_bmi(weight, height):
+          height = height/100
+          bmi = weight / (height ** 2)
+          return round(bmi,1)
+
+        print(calculate_bmi(70, 175))
+      </textarea>
+    </div>
+    <a href="q0022.html" class="btn btn-primary">다음으로</a>
+  </div>
+</body>
+</html>

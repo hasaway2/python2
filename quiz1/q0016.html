@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    #page {
+      width: 1000px;
+      margin: 0 auto;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    let isHide = true;
+
+    function control() {
+      if(isHide) {
+        $(this).text('답안 보기');
+        $('#answer').hide();
+      } else {
+        $(this).text('답안 감추기')
+        $('#answer').show();
+      }
+    }
+
+    $(document).ready(function() {
+      control();
+      $('#toggle').click(function() {
+        isHide=!isHide;
+        control();
+      });
+    });
+    
+  </script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="page">
+    <div>
+      <textarea class="form-control" rows="7" disabled>
+        # 아래와 같은 내용을 저장하는 파이썬 변수 s로 만드시오
+        # 사는 곳 : 서울
+        # 성별 : 여자
+        # 이름 : 시은
+
+        # 나이와 혈액형을 입력받아 저장 후 출력하시오
+      </textarea>
+  
+    </div>
+    <div class="d-grid mb-3 mt-3">
+      <button id="toggle" class="btn btn-outline-primary">답안 보기</button>
+    </div>
+    <div id="answer">
+      <textarea class="form-control" rows="10" disabled>
+        s = {'사는 곳':'서울', '성별':'여자', '이름':'시은'}
+        nai = int(input('나이 입력:'))
+        blood_type = input('혈액형 입력:')
+        s['나이'] = nai
+        s['혈액형'] = blood_type
+
+        print(s)
+      </textarea>
+    </div>
+    <a href="q0017.html" class="btn btn-primary">다음으로</a>
+  </div>
+</body>
+</html>

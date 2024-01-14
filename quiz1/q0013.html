@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    #page {
+      width: 1000px;
+      margin: 0 auto;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    let isHide = true;
+
+    function control() {
+      if(isHide) {
+        $(this).text('답안 보기');
+        $('#answer').hide();
+      } else {
+        $(this).text('답안 감추기')
+        $('#answer').show();
+      }
+    }
+
+    $(document).ready(function() {
+      control();
+      $('#toggle').click(function() {
+        isHide=!isHide;
+        control();
+      });
+    });
+    
+  </script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="page">
+    <div>
+      <textarea class="form-control" rows="5" disabled>
+        # 사각형의 너비와 높이를 입력받아 면적을 출력하는 함수
+        # 너비와 높이는 실수로 처리
+        # 면적은 round 함수를 이용해 소수점 첫째자리까지 출력
+      </textarea>
+    </div>
+    <div class="d-grid mb-3 mt-3">
+      <button id="toggle" class="btn btn-outline-primary">답안 보기</button>
+    </div>
+    <div id="answer">
+      <textarea class="form-control" rows="10" disabled>
+        try:
+          width = float(input('너비 입력 : '))
+          height = float(input('높이 입력 : '))
+          area = round(width * height, 1)
+          print(f'면적은 {area}')
+        except:
+          print('너비와 높이를 정확히 입력하세요')        
+      </textarea>
+    </div>
+    <a href="q0014.html" class="btn btn-primary">다음으로</a>
+  </div>
+</body>
+</html>
